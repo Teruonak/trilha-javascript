@@ -11,5 +11,3 @@ const companies = dataXls[0].data.slice(1);
 companies.forEach((company) => {
   new Company(...company).save();
 });
-
-console.log(Company.get('ca'));
