@@ -13,6 +13,7 @@ const server = http.createServer((req, res) => {
 
 // Config Controllers
 require('./controllers/company-controller');
+require('./controllers/user-controller');
 
 // Bind Server
 server.listen(port, () => {
