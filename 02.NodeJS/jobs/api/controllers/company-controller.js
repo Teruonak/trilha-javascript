@@ -1,11 +1,14 @@
 'use strict';
 
 const express = require('express');
-const router = express.Router();
 const Company = require('../model/company-model');
+const ctrl = {};
+ctrl.getCompanies = (req,res) => {
+  res.send(Company.get());
+};
 
-router.get('/companies', (req,res) => {
-  res.Company.get();
-});
+ctrl.saveCompany = (req,res) => {
+  res.send('save');
+}
 
-module.exports = router;
+module.exports = ctrl;
