@@ -1,21 +1,29 @@
 'use strict';
 
-require('./init-database');
-
-const http = require('http');
+const express = require('express');
+const app = express();
 const port = 4000;
-const router = require('./router');
 
-// Config Server
-const server = http.createServer((req, res) => {
-  router.proccessRequest(req,res);
-});
+app.listen(port, () => {
+  console.log(`listen on port ${port}`);
+})
 
-// Config Controllers
-require('./controllers/company-controller');
-require('./controllers/user-controller');
-
-// Bind Server
-server.listen(port, () => {
-  console.log(`listen port ${port}`);
-});
+//
+// require('./init-database');
+//
+// const http = require('http');
+// const router = require('./router');
+//
+// // Config Server
+// const server = http.createServer((req, res) => {
+//   router.proccessRequest(req,res);
+// });
+//
+// // Config Controllers
+// require('./controllers/company-controller');
+// require('./controllers/user-controller');
+//
+// // Bind Server
+// server.listen(port, () => {
+//   console.log(`listen port ${port}`);
+// });
