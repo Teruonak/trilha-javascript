@@ -1,7 +1,9 @@
 'use strict';
 
 const app = require('../app');
-const port = 4000;
+const env = require('../env');
+
+const port = env.server.port;
 
 app.listen(port, () => {
   console.log(`listen on port ${port}`);
