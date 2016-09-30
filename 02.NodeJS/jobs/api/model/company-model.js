@@ -13,6 +13,10 @@ class Company {
     companies.push(this);
   }
 
+  update() {
+    companies[this.id] = this;
+  }
+
   static get(name) {
     if(name) {
       return companies.filter(
