@@ -8,7 +8,8 @@ ctrl.getUsers = (req,res) => {
 };
 
 ctrl.saveUser = (req,res) => {
-  res.send('Save');
+  new User(req.body.name, req.body.profile).save();
+  res.send(req.body);
 };
 
 module.exports = ctrl;

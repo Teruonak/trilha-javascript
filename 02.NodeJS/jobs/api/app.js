@@ -2,10 +2,15 @@
 
 require('./init-database');
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
-app.use(require('./routes/company-route'));
+// config Middlewares
+app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.json());
 
+// config routes
+app.use(require('./routes/company-route'));
 app.use(require('./routes/user-route'));
 
 module.exports = app;

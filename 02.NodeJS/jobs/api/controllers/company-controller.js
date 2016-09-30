@@ -8,7 +8,16 @@ ctrl.getCompanies = (req,res) => {
 };
 
 ctrl.saveCompany = (req,res) => {
-  res.send('save');
+  new Company(
+    req.body.name,
+    req.body.segment,
+    req.body.email,
+    req.body.site,
+    req.body.city,
+    req.body.tecnologies
+  ).save();
+
+  res.send(req.body);
 }
 
 module.exports = ctrl;
