@@ -16,7 +16,7 @@ class Company {
   static get(name) {
     if(name) {
       return companies.filter(
-        (company) => company.name.toLowerCase().startsWith(name)
+        (company) => company.name.toLowerCase().startsWith(name.toLowerCase())
       );
     }
     return companies;
