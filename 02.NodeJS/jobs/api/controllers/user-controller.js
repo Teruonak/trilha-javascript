@@ -1,9 +1,14 @@
 'use strict';
 
 const User = require('../model/user-model');
-const router = require('../router');
+const ctrl = {};
 
-router.get('/users', (req,res) => {
-  res.write(JSON.stringify(User.get()));
-  res.end();
-});
+ctrl.getUsers = (req,res) => {
+  res.send(User.get());
+};
+
+ctrl.saveUser = (req,res) => {
+  res.send('Save');
+};
+
+module.exports = ctrl;
