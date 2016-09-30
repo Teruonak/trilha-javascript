@@ -1,7 +1,4 @@
-'use strict';
-// Crie um objeto de operações contendo dois operandos.
-// Em seus métodos adicione as operações matemáticas básicas
-// com base em seus atributos.
+'use stric'
 
 const operacoes = {
   x: 10,
@@ -12,6 +9,7 @@ const operacoes = {
   subtracao: subtracao
 }
 
+// sofre hoisting
 function subtracao() {
   return this.x - this.y;
 }

@@ -2,7 +2,7 @@
 
 function funcao1() {
   console.log('funcao1');
-  return true;
+  return false;
 }
 
 function funcao2() {
@@ -10,6 +10,7 @@ function funcao2() {
   return true;
 }
 
-var result = funcao1() | funcao2();
+var result1 = (funcao1() && funcao2());
+// var result2 = (funcao1() & funcao2());
 
-console.log(result);
+console.log('&& : ' + result1);
