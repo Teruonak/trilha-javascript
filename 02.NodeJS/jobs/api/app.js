@@ -1,5 +1,6 @@
 'use strict';
 
+require('./init-database');
 const express = require('express');
 const app = express();
 
