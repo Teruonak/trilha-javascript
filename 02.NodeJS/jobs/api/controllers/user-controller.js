@@ -4,7 +4,7 @@ const User = require('../model/user-model');
 const ctrl = {};
 
 ctrl.getUsers = (req,res) => {
-  res.send(User.get());
+  res.send(User.get(req.query.name));
 };
 
 ctrl.saveUser = (req,res) => {

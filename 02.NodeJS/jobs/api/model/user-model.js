@@ -15,7 +15,7 @@ class User {
   static get(name) {
     if(name) {
       return users.filter(
-        (user) => user.name.toLowerCase().startsWith(name)
+        (user) => user.name.toLowerCase().startsWith(name.toLowerCase())
       );
     }
     return users;
