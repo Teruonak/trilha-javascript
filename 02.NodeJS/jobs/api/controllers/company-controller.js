@@ -41,5 +41,9 @@ ctrl.updateCompany = (req,res) => {
   res.send(req.body);
 }
 
+ctrl.deleteCompany = (req,res) => {
+  Company.remove(req.params.id);
+  res.send();
+}
 
 module.exports = ctrl;

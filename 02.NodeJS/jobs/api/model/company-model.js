@@ -31,5 +31,8 @@ class Company {
     return companies[id];
   }
 
+  static remove(id) {
+    companies.splice(id, 1);
+  }
 }
 module.exports = Company;
