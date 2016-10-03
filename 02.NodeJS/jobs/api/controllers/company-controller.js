@@ -3,6 +3,10 @@
 const Company = require('../model/company-model');
 const ctrl = {};
 
+ctrl.getCompany = (req,res) => {
+  res.send(Company.getById(req.params.id));
+}
+
 ctrl.getCompanies = (req,res) => {
   res.send(Company.get(req.query.name));
 };
@@ -17,7 +21,7 @@ ctrl.saveCompany = (req,res) => {
     req.body.tecnologies
   ).save();
 
-  res.send(req.body);
+  res.status(201).send(req.body);
 }
 
 ctrl.updateCompany = (req,res) => {
@@ -36,5 +40,6 @@ ctrl.updateCompany = (req,res) => {
 
   res.send(req.body);
 }
+
 
 module.exports = ctrl;

@@ -1,5 +1,6 @@
 'use strict';
-const companies = [];
+let companies = [];
+
 class Company {
   constructor(name, segment, email, site, city, tecnologies) {
     this.name = name;
@@ -25,5 +26,10 @@ class Company {
     }
     return companies;
   }
+
+  static getById(id) {
+    return companies[id];
+  }
+
 }
 module.exports = Company;
