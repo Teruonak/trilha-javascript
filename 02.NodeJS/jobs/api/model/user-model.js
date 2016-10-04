@@ -12,6 +12,10 @@ class User {
     users.push(this);
   }
 
+  update() {
+    users[this.id] = this;
+  }
+
   static get(name) {
     if(name) {
       return users.filter(
@@ -19,6 +23,14 @@ class User {
       );
     }
     return users;
+  }
+
+  static getById(id) {
+    return users[id];
+  }
+
+  remove(id) {
+    users.splice(users, 1);
   }
 }
 
