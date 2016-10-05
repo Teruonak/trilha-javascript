@@ -4,7 +4,13 @@ const User = require('../model/user-model');
 const ctrl = {};
 
 ctrl.getUsers = (req,res) => {
-  res.send(User.get(req.query.name));
+  User.get(req.query)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
 };
 
 ctrl.getUser = (req,res) => {

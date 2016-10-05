@@ -1,39 +1,26 @@
 'use strict';
 
-const users = [];
+//this file will only export mehtods like 'get'. if exports all the object, then will publish too much code
 
-class User {
-  constructor(name, profile) {
-    this.name = name;
-    this.profile = profile;
-  }
-
-  save() {
-    users.push(this);
-  }
-
-  update() {
-    users[this.id] = this;
-  }
-
-  static get(name) {
-    if(name) {
-      return users.filter(
-        (user) => user.name.toLowerCase().startsWith(name.toLowerCase())
-      );
+const mongoose = require('mongoose');
+const schema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    active: {
+        type: Boolean,
+        required: true
     }
-    return users;
-  }
+})
 
-  static getById(id) {
-    return users[id];
-  }
+// mongoose will understand that the User will be related with Users collections
+const User = mongoose.model('User', schema);
 
-  remove(id) {
-    users.splice(users, 1);
-  }
+module.exports.get = (query) => {
+    return User.find(query);
 }
-
-users.push(new User('Marcel', 'admin'));
-
-module.exports = User;
