@@ -1,0 +1,45 @@
+teruo@teruo-mac ~ $ mongo
+MongoDB shell version: 3.2.4
+connecting to: test
+Server has startup warnings:
+2016-10-04T20:46:55.912-0300 I CONTROL  [initandlisten]
+2016-10-04T20:46:55.912-0300 I CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+> db
+test
+> show dbs
+chatSails  0.078GB
+feedSails  0.078GB
+local      0.078GB
+sailsApi   0.078GB
+test       0.078GB
+> use jobs-db
+switched to db jobs-db
+> db
+jobs-db
+> db.ls
+jobs-db.ls
+> use chatSails
+switched to db chatSails
+> show collections
+chat
+system.indexes
+> use jobs-db
+switched to db jobs-db
+> db
+jobs-db
+> var user = {}
+> user
+{ }
+> user.name = 'Marcel'
+Marcel
+> user.password = '123456'
+123456
+> user
+{ "name" : "Marcel", "password" : "123456" }
+> db.users.save(user)
+WriteResult({ "nInserted" : 1 })
+> show collections
+system.indexes
+users
+> db.users.find()
+{ "_id" : ObjectId("57f4408df21495ca6624e850"), "name" : "Marcel", "password" : "123456" }

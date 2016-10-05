@@ -1,0 +1,28 @@
+> show dbs
+chatSails  0.078GB
+feedSails  0.078GB
+jobs-db    0.078GB
+local      0.078GB
+sailsApi   0.078GB
+test       0.078GB
+> use jobs-db
+switched to db jobs-db
+> db
+jobs-db
+> show collections
+system.indexes
+users
+> var query = {}
+> query.$or = []
+[ ]
+> query
+{ "$or" : [ ] }
+> query.$or[0] = {name: 'Marcel'}
+{ "name" : "Marcel" }
+> query.$or[1] = {name: 'Emi'}
+{ "name" : "Emi" }
+> query
+{ "$or" : [ { "name" : "Marcel" }, { "name" : "Emi" } ] }
+> db.users.find(query)
+{ "_id" : ObjectId("57f4408df21495ca6624e850"), "name" : "Marcel", "password" : "123456" }
+{ "_id" : ObjectId("57f442ecf21495ca6624e851"), "name" : "Emi", "password" : "654321" }

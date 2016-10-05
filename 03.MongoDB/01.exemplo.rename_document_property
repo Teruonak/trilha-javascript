@@ -1,0 +1,38 @@
+> users.save({name: 'Yokobara', pw: 'neko'})
+WriteResult({ "nInserted" : 1 })
+> users.find()
+{ "_id" : ObjectId("57f4408df21495ca6624e850"), "name" : "Marcel", "password" : "123456" }
+{ "_id" : ObjectId("57f442ecf21495ca6624e851"), "name" : "Emi", "password" : "654321" }
+{ "_id" : ObjectId("57f4470b8c4b9bdc8696d354"), "name" : "Emizinha", "password" : "aaa", "age" : 2 }
+{ "_id" : ObjectId("57f44f438c4b9bdc8696d355"), "name" : "Yokobara", "pw" : "neko" }
+> users.find()[3]
+{
+	"_id" : ObjectId("57f44f438c4b9bdc8696d355"),
+	"name" : "Yokobara",
+	"pw" : "neko"
+}
+> var user = users.find()[3]
+> user
+{
+	"_id" : ObjectId("57f44f438c4b9bdc8696d355"),
+	"name" : "Yokobara",
+	"pw" : "neko"
+}
+> user.password = user.pw
+neko
+> delete user.pw
+true
+> user
+{
+	"_id" : ObjectId("57f44f438c4b9bdc8696d355"),
+	"name" : "Yokobara",
+	"password" : "neko"
+}
+> users.save(user)
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> users.find()
+{ "_id" : ObjectId("57f4408df21495ca6624e850"), "name" : "Marcel", "password" : "123456" }
+{ "_id" : ObjectId("57f442ecf21495ca6624e851"), "name" : "Emi", "password" : "654321" }
+{ "_id" : ObjectId("57f4470b8c4b9bdc8696d354"), "name" : "Emizinha", "password" : "aaa", "age" : 2 }
+{ "_id" : ObjectId("57f44f438c4b9bdc8696d355"), "name" : "Yokobara", "password" : "neko" }
+>

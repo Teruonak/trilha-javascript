@@ -1,0 +1,23 @@
+> var user = users.find()[2]
+> user.name = 'Emizinha'
+Emizinha
+> user.password = 'aaa'
+aaa
+> user.age = 2
+2
+> user
+{
+	"_id" : ObjectId("57f4470b8c4b9bdc8696d354"),
+	"name" : "Emizinha",
+	"password" : "aaa",
+	"age" : 2
+}
+> users.save(user)
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> users
+jobs-db.users
+> users.find()
+{ "_id" : ObjectId("57f4408df21495ca6624e850"), "name" : "Marcel", "password" : "123456" }
+{ "_id" : ObjectId("57f442ecf21495ca6624e851"), "name" : "Emi", "password" : "654321" }
+{ "_id" : ObjectId("57f4470b8c4b9bdc8696d354"), "name" : "Emizinha", "password" : "aaa", "age" : 2 }
+>
