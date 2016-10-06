@@ -26,5 +26,17 @@ module.exports.get = (query) => {
 }
 
 module.exports.save = (user) => {
+    return new Promise((resolve, reject) => {
+        new User(user).save((err, data) => {
+            if (err) { // the function will execute when it contains error
+                return reject(err);
+            }
+
+            resolve({ // the funciton was execute successfully
+                _id: data._id
+            });
+        });
+    });
+
     return new User(user).save(); // this will return a promise
 }
