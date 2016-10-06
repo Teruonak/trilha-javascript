@@ -28,16 +28,13 @@ ctrl.saveUser = (req, res) => {
 };
 
 ctrl.updateUser = (req, res) => {
-    let user = new User(
-        req.body.name,
-        req.body.password
-    );
-
-    user.id = req.params.id;
-
-    user.update();
-
-    res.send(req.body);
+    User.update(req.params.is, req.body)
+      .then((data) => {
+        res.status(200).send();
+      })
+      .catch((err) => {
+        res.staus(500).send(err);
+      });
 }
 
 ctrl.removeUser = (req, res) => {

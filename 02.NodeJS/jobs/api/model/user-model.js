@@ -37,6 +37,10 @@ module.exports.save = (user) => {
             });
         });
     });
-
-    return new User(user).save(); // this will return a promise
 }
+
+module.exports.update = (_id, user) => {
+    let _query = { _id }; // same as let _query = { _id: _id };
+
+    return User.update(_query, user);
+};
