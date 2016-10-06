@@ -14,7 +14,7 @@ const schema = new mongoose.Schema({
     },
     active: {
         type: Boolean,
-        required: true
+        default: true
     }
 })
 
@@ -23,4 +23,8 @@ const User = mongoose.model('User', schema);
 
 module.exports.get = (query) => {
     return User.find(query);
+}
+
+module.exports.save = (user) => {
+    return new User(user).save(); // this will return a promise
 }
