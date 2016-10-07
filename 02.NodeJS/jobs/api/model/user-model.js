@@ -44,3 +44,9 @@ module.exports.update = (_id, user) => {
 
     return User.update(_query, user);
 };
+
+module.exports.remove = (_id) => {
+  let _query = { _id };
+  
+  return User.remove(_query);
+};

@@ -38,8 +38,13 @@ ctrl.updateUser = (req, res) => {
 }
 
 ctrl.removeUser = (req, res) => {
-    User.remove(req.params.id);
-    res.send();
+    User.remove(req.params.id)
+      .then((data) => {
+        res.status(200).send(data);
+      })
+      .catch((err) => {
+        res.staus(500).send(err);
+      });
 }
 
 module.exports = ctrl;
