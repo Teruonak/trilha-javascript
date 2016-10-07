@@ -14,7 +14,13 @@ ctrl.getUsers = (req, res) => {
 };
 
 ctrl.getUser = (req, res) => {
-    res.send(User.getById(req.params.id));
+    User.getById(req.params.id)
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((err) => {
+            res.status(500).send(err);
+        });
 }
 
 ctrl.saveUser = (req, res) => {

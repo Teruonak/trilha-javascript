@@ -25,6 +25,12 @@ module.exports.get = (query) => {
     return User.find(query);
 }
 
+module.exports.getById = (_id) => {
+  let _query = { _id };
+  let _fields = { password: false};
+  return User.findOne(_query, _fields);
+};
+
 module.exports.save = (user) => {
     return new Promise((resolve, reject) => {
         new User(user).save((err, data) => {
@@ -47,6 +53,6 @@ module.exports.update = (_id, user) => {
 
 module.exports.remove = (_id) => {
   let _query = { _id };
-  
+
   return User.remove(_query);
 };
