@@ -22,11 +22,12 @@ const schema = new mongoose.Schema({
 const User = mongoose.model('User', schema);
 
 module.exports.get = (query) => {
+    query.active = true;
     return User.find(query);
 }
 
 module.exports.getById = (_id) => {
-  let _query = { _id };
+  let _query = { _id, active: true };
   let _fields = { password: false};
   return User.findOne(_query, _fields);
 };
@@ -53,6 +54,6 @@ module.exports.update = (_id, user) => {
 
 module.exports.remove = (_id) => {
   let _query = { _id };
-
-  return User.remove(_query);
+  let _fields = { active: false };
+  return User.update(_query, _fields);
 };
