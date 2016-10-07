@@ -13,7 +13,7 @@ router.post('/company', ctrl.saveCompany);
 // Update
 router.put('/company/:id', ctrl.updateCompany); // the :id will change
 // Delete
-router.delete('/company/:id', ctrl.deleteCompany);
+router.delete('/company/:id', ctrl.removeCompany);
 
 
 module.exports = router;
