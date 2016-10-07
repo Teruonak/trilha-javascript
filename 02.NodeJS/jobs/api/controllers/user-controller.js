@@ -28,7 +28,7 @@ ctrl.saveUser = (req, res) => {
 };
 
 ctrl.updateUser = (req, res) => {
-    User.update(req.params.is, req.body)
+    User.update(req.params.id, req.body)
       .then((data) => {
         res.status(200).send();
       })
