@@ -27,9 +27,14 @@ module.exports.get = (query) => {
 }
 
 module.exports.getById = (_id) => {
-  let _query = { _id, active: true };
-  let _fields = { password: false};
-  return User.findOne(_query, _fields);
+    let _query = {
+        _id,
+        active: true
+    };
+    let _fields = {
+        password: false
+    };
+    return User.findOne(_query, _fields);
 };
 
 module.exports.save = (user) => {
@@ -47,13 +52,27 @@ module.exports.save = (user) => {
 }
 
 module.exports.update = (_id, user) => {
-    let _query = { _id }; // same as let _query = { _id: _id };
+    let _query = {
+        _id
+    }; // same as let _query = { _id: _id };
 
     return User.update(_query, user);
 };
 
 module.exports.remove = (_id) => {
-  let _query = { _id };
-  let _fields = { active: false };
-  return User.update(_query, _fields);
+    let _query = {
+        _id
+    };
+    let _fields = {
+        active: false
+    };
+    return User.update(_query, _fields);
+};
+
+module.exports.authUser = (user) => {
+    return User.findOne({
+        name: user.name,
+        password: user.password,
+        active: true
+    });
 };

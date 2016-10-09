@@ -12,5 +12,6 @@ app.use(bodyParser.json());
 // config routes
 app.use(require('./routes/company-route'));
 app.use(require('./routes/user-route'));
+app.use(require('./routes/auth-route'));
 
 module.exports = app;
