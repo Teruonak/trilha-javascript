@@ -9,6 +9,11 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  console.log('passou no Middleware');
+  next(); // method to proceed with the next middleware
+});
+
 // config routes
 app.use(require('./routes/company-route'));
 app.use(require('./routes/user-route'));
