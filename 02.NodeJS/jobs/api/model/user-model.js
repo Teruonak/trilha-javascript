@@ -76,3 +76,11 @@ module.exports.authUser = (user) => {
         active: true
     });
 };
+
+module.exports.authorization = (credentials) => {
+  return User.findOne({
+    name: credentials.name,
+    password: credentials.password,
+    active: true
+  });
+};
