@@ -3,13 +3,19 @@
 
   angular.module('jobs').controller('UserController', controller);
 
-  controller.$inject = [];
+  controller.$inject = ['$http'];
 
-  function controller() {
+  function controller($http) {
     const vm = this;
 
     vm.initUsers = () => {
-      vm.users = [];
+      $http.get('http://localhost:4000/users')
+        .then((res) => {
+          vm.users = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     };
 
     vm.save = (user) => {
