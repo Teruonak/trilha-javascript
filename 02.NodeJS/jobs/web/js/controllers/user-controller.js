@@ -3,13 +3,13 @@
 
   angular.module('jobs').controller('UserController', controller);
 
-  controller.$inject = ['$http'];
+  controller.$inject = ['UserService'];
 
-  function controller($http) {
+  function controller(UserService) {
     const vm = this;
 
     vm.initUsers = () => {
-      $http.get('http://localhost:4000/users')
+      UserService.getUsers()
         .then((res) => {
           vm.users = res.data;
         })
@@ -19,14 +19,28 @@
     };
 
     vm.save = (user) => {
-      vm.users.push(user);
-      vm.user = {};
+      UserService.saveUser()
+        .then((res) => {
+          console.log(res);
+          vm.user = {};
+          vm.initUsers();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     };
 
     vm.deleteSelected = (users) => {
-      vm.users = users.filter((user) => {
-        return !user.selected
+      let _usersToRemove = users.filter((user) => {
+        return user.selected
       });
+      UserService.removeAll(_usersToRemove)
+        .then((res) => {
+          vm.initUsers();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     };
   }
 
