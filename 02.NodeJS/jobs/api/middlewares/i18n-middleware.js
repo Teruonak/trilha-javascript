@@ -44,9 +44,6 @@ function getEffectiveLocale(locales) {
 
 module.exports = (req, res, next) => {
     let locales = req.headers[HEADER_PROPERTY];
-    console.log(locales);
-
-    console.log(messages);
     // Locales separados por ',' e propriedades do locale separados por ';'
     // pt-BR,pt;q=0.8,
 
