@@ -19,7 +19,7 @@
     };
 
     vm.save = (user) => {
-      UserService.saveUser()
+      UserService.saveUser(user)
         .then((res) => {
           console.log(res);
           vm.user = {};
