@@ -78,9 +78,12 @@ module.exports.authUser = (user) => {
 };
 
 module.exports.authorization = (credentials) => {
+  let _fields = {
+      password: false
+  };
   return User.findOne({
     name: credentials.name,
     password: credentials.password,
     active: true
-  });
+  },_fields);
 };

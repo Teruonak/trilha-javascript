@@ -1,6 +1,6 @@
 'use strict';
 
-const User = require('../model/user-model');
+const User = require('../models/user-model');
 const ctrl = {};
 
 ctrl.authUser = (req, res) => {

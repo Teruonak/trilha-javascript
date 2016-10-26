@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html data-ng-app="login" data-ng-cloak>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <form data-ng-controller="LoginController as vm" data-ng-submit="vm.authenticate(vm.user)">
+      <label for="name">Name</label>
+      <input type="text" name="name" value="" id="name" required data-ng-model="vm.user.name">
+
+      <label for="password">Password</label>
+      <input type="password" name="password" value="" id="password" required data-ng-model="vm.user.password">
+
+      <!-- data-ng-if remove from DOM -->
+      <p data-ng-if="vm.invalidUser">Usuário ou Senha inválido</p>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <script src="lib/angular.min.js"></script>
+    <script src="js/login-app.js"></script>
+    <script src="js/config-app.js"></script>
+    <script src="js/config/api-config.js"></script>
+    <script src="js/services/login-service.js"></script>
+    <script src="js/controllers/login-controller.js"></script>
+
+  </body>
+</html>
